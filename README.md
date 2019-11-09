@@ -5,13 +5,9 @@
 |------|----|-------|
 |name|string|null: false, unique: true|
 |email|text|null: false, unique: true|
-|group_id|integer|null: false, foriegin_key: true|
-|message_id|integer|null: false, foriegin_key: true|
-
 ### Association
-- has_many: :groups, thorough: :groups_users
-- has_many: messages 
-
+- has_many: :groups, through: :groups_users
+- has_many: :messages 
 ### Index
 - add_index :users: :name
 
@@ -21,12 +17,9 @@
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false|
-|user_id|integer|null: false, foriegin_key: true|
-|message_id|integer|null: false, foriegin_key: true|
-
 ### Association
-- has_many: :users, thorough: :groups_users
-- has_many: messages
+- has_many: :users, through: :groups_users
+- has_many: :messages
 
 ###
 
@@ -35,7 +28,6 @@
 |------|----|-------|
 |group_id|integer|null: false, foriegin_key: true|
 |user_id|integer|null: false, foriegin_key: true|
-
 ### Association
 - belongs_to :group
 - belongs_to :user
@@ -49,7 +41,6 @@
 |image|string|
 |group_id|integer|null: false, foriegin_key: true |
 |user_id|integer|null: false, foriegin_key: true|
-
 ### Association
 - belongs_to :group
 - belongs_to :user
