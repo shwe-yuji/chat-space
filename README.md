@@ -1,24 +1,55 @@
-# README
+# Chat-Space DB設計
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## usersテーブル
+|Column|Type|Options|
+|------|----|-------|
+|name|string|null: false, unique: true|
+|email|text|null: false, unique: true|
+|group_id|integer|null: false, foriegin_key: true|
+|message_id|integer|null: false, foriegin_key: true|
 
-Things you may want to cover:
+### Association
+- has_many: :groups, thorough: :groups_users
+- has_many: messages 
 
-* Ruby version
+### Index
+- add_index :users: :name
 
-* System dependencies
+###
 
-* Configuration
+## groupesテーブル
+|Column|Type|Options|
+|------|----|-------|
+|name|string|null: false|
+|user_id|integer|null: false, foriegin_key: true|
+|message_id|integer|null: false, foriegin_key: true|
 
-* Database creation
+### Association
+- has_many: :users, thorough: :groups_users
+- has_many: messages
 
-* Database initialization
+###
 
-* How to run the test suite
+## groups_usersテーブル
+|Column|Type|Options|
+|------|----|-------|
+|group_id|integer|null: false, foriegin_key: true|
+|user_id|integer|null: false, foriegin_key: true|
 
-* Services (job queues, cache servers, search engines, etc.)
+### Association
+- belongs_to :group
+- belongs_to :user
 
-* Deployment instructions
+###
 
-* ...
+## messagesテーブル
+|Column|Type|Options|
+|------|----|-------|
+|body|text|
+|image|string|
+|group_id|integer|null: false, foriegin_key: true |
+|user_id|integer|null: false, foriegin_key: true|
+
+### Association
+- belongs_to :group
+- belongs_to :user
