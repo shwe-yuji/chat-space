@@ -1,0 +1,60 @@
+.side_bar {
+  width: 300px;
+  height: 100vh;
+  float: left;
+
+  .user {
+    height: 100px;
+    background-color: #253141;
+    color: #FFFFFF;
+    font-weight: bold;
+    padding: 0px 20px;
+    display: flex;
+    justify-content: space-between;
+
+    &__name {
+      font-size: 16px;
+      line-height: 100px;
+    }
+
+    &__icons {
+      line-height: 100px;
+      position: relative;
+
+      &__btn {
+        color: #FFFFFF;
+        text-decoration: none;
+
+        &--cog {
+          position: absolute;
+          right: 30px;
+          top: 40px;
+        }
+
+        &--edit {
+          position: absolute;
+          right: 5px;
+          top: 40px;
+        }
+      }
+    }
+  }
+
+  .groups {
+    height: calc(100vh - 100px);
+    background-color: #2f3e51;
+    color: #FFFFFF;
+    font-weight: bold;
+    padding: 0px 20px;
+    
+    &__name {
+      font-size: 15px;
+      padding-top: 20px;
+    }
+
+    &__comment {
+      font-size: 11px;
+      scroll-padding-bottom: 40px;
+    }
+  }
+}
