@@ -1,0 +1,11 @@
+.side_bar
+  .user
+    .user__name ユーザー名
+    .user__icons
+      = link_to '#', class: 'user__icons__btn' do
+        = fa_icon 'cog', class: 'user__icons__btn--cog'
+      = link_to '#', class: 'user__icons__btn' do
+        = fa_icon 'edit', class: 'user__icons__btn--edit'
+  .groups
+    .groups__name グループ名
+    .groups__comment コメント
