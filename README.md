@@ -6,8 +6,8 @@
 |name|string|null: false, unique: true|
 |email|text|null: false, unique: true|
 ### Association
-- has_many: groups_users
-- has_many: :groups, through: :groups_users
+- has_many: :group_user
+- has_many: :groups, through: :group_user
 - has_many: :messages 
 ### Index
 - add_index :users: :name
@@ -19,13 +19,13 @@
 |------|----|-------|
 |name|string|null: false|
 ### Association
-- has_many: groups_users
-- has_many: :users, through: :groups_users
+- has_many: group_user
+- has_many: :users, through: :group_user
 - has_many: :messages
 
 ###
 
-## groups_usersテーブル
+## group_userテーブル
 |Column|Type|Options|
 |------|----|-------|
 |group_id|integer|null: false, foriegin_key: true|
