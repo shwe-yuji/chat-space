@@ -43,18 +43,25 @@
   .groups {
     height: calc(100vh - 100px);
     background-color: #2f3e51;
-    color: #FFFFFF;
-    font-weight: bold;
     padding: 0px 20px;
     
-    &__name {
-      font-size: 15px;
-      padding-top: 20px;
-    }
+    .group {
+      padding: 15px 20px;
+      
+      &__link {
+        text-decoration: none;
+      }
+      &__name {
+        font-size: 15px;
+        padding-top: 20px;
+        color: #FFFFFF;
+      }
 
-    &__comment {
-      font-size: 11px;
-      scroll-padding-bottom: 40px;
+      &__comment {
+        font-size: 11px;
+        scroll-padding-bottom: 40px;
+        color: #FFFFFF;
+      }
     }
   }
 }
