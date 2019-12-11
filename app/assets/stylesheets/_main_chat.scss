@@ -7,7 +7,7 @@
     height: 100px;
     border-bottom: 1px solid #eeeeee;
     padding-left: 40px;
-    display: flex;
+    position: relative;
     justify-content: space-between;
     
     &__group {
@@ -23,6 +23,14 @@
         font-size: 12px;
         color: #999999; 
       }
+
+      &--list {
+        font-size: 12px;
+        color: #999999; 
+        position: absolute;
+        top: 80px;
+        left: 100px;
+      }
     }
 
     &__btn {
@@ -30,7 +38,7 @@
       text-decoration: none;
       position: absolute;
       right: 40px;
-      margin-top: 28px;
+      top: 30px;
       border: 1px solid #38aef0;
 
       &--edit {
@@ -41,12 +49,13 @@
 
   .chat-space {
     height: calc(100vh - 190px);
+    overflow: scroll;
 
-    &__message {
+    .message {
       padding-top: 46px;
       padding-left: 40px;
     
-      &--name {
+      &__name {
         font-size: 16px;
         font-weight: bold;
         color: #434A54;
@@ -54,12 +63,12 @@
         padding-right: 10px;
       }
 
-      &--date-time {
+      &__date-time {
         font-size: 12px;
         color: #999999;
       }
 
-      &--comment {
+      &__comment {
         font-size: 14px;
         color: #434A54;
         padding-top: 10px;
@@ -68,40 +77,46 @@
   }
 
   .form {
-      height: 90px;
-      background-color: #ddd;
-      padding: 0px 40px;
-
-    .input-box {
+    height: 90px;
+    background-color: #ddd;
+    padding: 0px 40px;
+      
+    .new_message {
       padding: 20px 0px;
       display: flex;
-      flex-direction: row;
       position: relative;
       
-      &__input {
+      .field_with_errors {
+        height: 50px;
+        width: 100%;
+        padding-right: 15px;
+        color: #434A54;
+      }
+
+      .input-area {
         height: 50px;
         width: 100%;
         color: #434A54;
         padding-left: 10px;
-        margin-right: 15px;
+      }
+        .label {
+          position: absolute;
+          right: 130px;
+          top: 35px;
+
+          .file {
+            display: none;
+            }
+          }
       }
 
-      &__label {
-        position: absolute;
-        right: 150px;
-        top: 35px;
-                
-        &__file {
-          display: none;
-        }
-      }
-    
-      &__submit-btn {
+      .submit-btn {
+        width: 100px;
+        height: 50px;
+        padding: 0 30px;
+        margin-left: 15px;
         background-color: #38aef0;
-        padding: 10px 20px;
         color: white;
-        margin-right: 40px;
       }
     } 
   }
-}

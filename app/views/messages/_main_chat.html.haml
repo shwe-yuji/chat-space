@@ -1,23 +1,30 @@
 .main-chat
   .header
     .header__group
-      .header__group--name グループ名
-      .header__group--member メンバー
-    = link_to '#', class: 'header__btn' do
+      .header__group--name 
+        = @group.name
+      .header__group--member Member : 
+      .header__group--list
+        - @group.users.each do |user|
+          =  user.name
+    = link_to edit_group_path(@group), class: 'header__btn' do
       .header__btn--edit Edit
 
   .chat-space
-    .chat-space__message
-      .chat-space__message--name グループ名
-      .chat-space__message--date-time 例2019/07/06 18:00
-      .chat-space__message--comment コメント
-  .form
-    = form_tag do
-      .input-box
-        %input{type: 'text', value: 'type a message', class: 'input-box__input'}
-          %label{for: 'file', class: 'input-box__label'}
-            %input{type: 'file', id: 'file', class: 'input-box__label__file'}
-              = fa_icon 'image', class: 'input-box__label--image'
+    - @messages.each do |message|
+      .message
+        .message__name
+          = message.user.name
+        .message__date-time
+          = message.created_at.strftime("%Y/%m/%d %H:%M")
+        .message__comment
+          = message.body
 
-    
-        %input{type: 'submit', value: 'Send', class: 'input-box__submit-btn'}
+  .form
+    = form_for [@group, @message] do |f|
+      = f.text_field :body, class: 'input-area', placeholder: 'type a message'
+      .input-box
+        = f.label :file, class: 'label' do
+          = f.file_field :file, class: 'file'
+          = fa_icon 'image', class: 'icon'
+      = f.submit 'Send', class: 'submit-btn'

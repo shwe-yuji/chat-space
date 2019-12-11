@@ -5,6 +5,8 @@ class ApplicationController < ActionController::Base
 
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up, keys: [:name])
+    # deviseにデフォルト設置されている以外の項目を追加したい場合に記述
+    # 例：devise_parameter_sanitizer.permit(:sign_up(処理), keys: [:age](項目))
   end
 
 end
