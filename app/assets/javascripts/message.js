@@ -41,7 +41,7 @@ $(function() {
       let html = buildHTML(data);
       $('.chat-space').append(html);
       $('.chat-space').animate({scrollTop: $('.chat-space')[0].scrollHeight});
-      $('.input-area').val('');
+      $('#new_message')[0].reset();
       $('.submit-btn').prop('disabled', false);
     })
     .fail(function(){
