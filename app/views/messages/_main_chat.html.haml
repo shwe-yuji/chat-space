@@ -12,7 +12,7 @@
 
   .chat-space
     - @messages.each do |message|
-      .message
+      .message{data: {message_id: message.id}}
         .message__name
           = message.user.name
         .message__date-time
