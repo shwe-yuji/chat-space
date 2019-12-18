@@ -51,7 +51,7 @@ $(function() {
       $('.chat-space').animate({scrollTop: $('.chat-space')[0].scrollHeight});
     })
     .fail(function(){
-        console.log('error!');
+      alert("メッセージの送信に失敗しました");
       });
     };
 
