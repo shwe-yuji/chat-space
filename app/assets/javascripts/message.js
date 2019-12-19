@@ -69,7 +69,6 @@ $(function() {
     })
     .done(function(message) {
       let html = buildHTML(message);
-      console.log(message)
       $('.chat-space').append(html);
       $('.chat-space').animate({scrollTop: $('.chat-space')[0].scrollHeight});
       $('#new_message')[0].reset();
